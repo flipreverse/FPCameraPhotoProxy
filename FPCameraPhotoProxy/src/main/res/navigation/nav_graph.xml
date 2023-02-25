@@ -9,5 +9,5 @@
         android:id="@+id/FirstFragment"
         android:name="com.google.android.apps.photos.FirstFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first"/>
+        tools:layout="@layout/info_fragment"/>
 </navigation>
