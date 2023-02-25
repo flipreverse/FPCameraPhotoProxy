@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FPCameraProxy"
+        tools:targetApi="31">
+        <activity
+            android:name=".PhotoProxyActivity"
+            android:exported="true"
+            android:label="@string/title_activity_photo_proxy"
+            android:theme="@style/Theme.FPCameraProxy.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.android.camera.action.REVIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="" />
+                <data android:scheme="http" />
+                <data android:scheme="https" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="image/*" />
+                <data android:mimeType="application/vnd.google.panorama360+jpg" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".PhotoProxy"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="act=com.android.camera.action.REVIEW" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>
