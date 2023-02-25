@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.google.android.apps.photos.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.google.android.apps.photos.InfoFragment"
+        android:label="@string/info_fragment"
         tools:layout="@layout/info_fragment"/>
 </navigation>

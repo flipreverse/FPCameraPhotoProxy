@@ -2,7 +2,7 @@
     <string name="app_name">FPCameraProxy</string>
     <string name="title_activity_photo_proxy">PhotoProxyActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
+    <string name="info_fragment">FP-Camera Photo Proxy</string>
     <string name="exit_button">Quit</string>
 
     <string name="info_text">Hello first fragment</string>

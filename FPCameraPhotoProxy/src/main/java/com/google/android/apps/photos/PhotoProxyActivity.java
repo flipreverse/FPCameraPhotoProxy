@@ -27,11 +27,6 @@ public class PhotoProxyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent intent = this.getIntent();
-        Log.e(TAG, "Received intent:" + intent.toUri(0));
-        intent.setPackage("");
-        Log.e(TAG, "Modified intent:" + intent.toUri(0));
-
         binding = ActivityPhotoProxyBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -41,13 +36,19 @@ public class PhotoProxyActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Intent sourceIntent = this.getIntent();
+        Log.e(TAG, "Received intent:" + sourceIntent.toUri(0));
+        sourceIntent.setPackage("");
+        Log.e(TAG, "Modified intent:" + sourceIntent.toUri(0));
+        //this.startActivity(intent);
+        Intent targetIntent = new Intent();
+        targetIntent.setData(sourceIntent.getData());
+        targetIntent.setAction(sourceIntent.getAction());
+        targetIntent.putExtras(sourceIntent);
+        targetIntent.setFlags(sourceIntent.getFlags());
+        Log.e(TAG, "Own intent:" + targetIntent.toUri(0));
+        this.startActivity(targetIntent);
+        this.finish();
     }
 
     @Override
