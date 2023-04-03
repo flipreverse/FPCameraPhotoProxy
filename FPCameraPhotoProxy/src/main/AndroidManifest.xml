@@ -35,14 +35,6 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".PhotoProxy"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="act=com.android.camera.action.REVIEW" />
-            </intent-filter>
-        </service>
     </application>
 
 </manifest>
