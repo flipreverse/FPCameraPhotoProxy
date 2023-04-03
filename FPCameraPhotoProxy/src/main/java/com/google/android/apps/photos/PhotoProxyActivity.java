@@ -37,16 +37,16 @@ public class PhotoProxyActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
         Intent sourceIntent = this.getIntent();
-        Log.e(TAG, "Received intent:" + sourceIntent.toUri(0));
+        Log.i(TAG, "Received intent:" + sourceIntent.toUri(0));
         sourceIntent.setPackage("");
-        Log.e(TAG, "Modified intent:" + sourceIntent.toUri(0));
+        Log.i(TAG, "Modified intent:" + sourceIntent.toUri(0));
         //this.startActivity(intent);
         Intent targetIntent = new Intent();
         targetIntent.setData(sourceIntent.getData());
         targetIntent.setAction(sourceIntent.getAction());
         targetIntent.putExtras(sourceIntent);
         targetIntent.setFlags(sourceIntent.getFlags());
-        Log.e(TAG, "Own intent:" + targetIntent.toUri(0));
+        Log.i(TAG, "Own intent:" + targetIntent.toUri(0));
         this.startActivity(targetIntent);
         this.finish();
     }
